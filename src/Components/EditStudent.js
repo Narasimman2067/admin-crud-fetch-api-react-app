@@ -10,18 +10,18 @@ const EditStudent = ({employeesData,setEmployees}) => {
   
   const [editId, setEditId] = useState("");
   
-  const [Name, setName] = useState("");
-  const [Batch, setBatch] = useState("");
-  const [Gender, setGender] = useState("");
+  const [name, setName] = useState("");
+  const [batch, setBatch] = useState("");
+  const [gender, setGender] = useState("");
   const [Experiences, setExperience] = useState("");
   const employee=employeesData[id]
 
  useEffect(()=>{
   setEditId(employee.id);
 
- setName(employee.Name);
- setBatch(employee.Batch);
- setGender(employee.Gender);
+ setName(employee.name);
+ setBatch(employee.batch);
+ setGender(employee.gender);
  setExperience(employee.yearsOfExperience)
 
  },[]);
@@ -34,9 +34,9 @@ try {
 
    const updatedEmployeeObj = {
   
-    Name,
-    Batch,
-    Gender,
+    name,
+    batch,
+    gender,
     yearsOfExperience: Experiences,
   };
 
@@ -94,7 +94,7 @@ history.push("/user")
           label="Enter your name"
           variant="outlined"
           onChange={(event) => setName(event.target.value)}
-          value={Name}
+          value={name}
         />
         <TextField
          required
@@ -102,7 +102,7 @@ history.push("/user")
           label="Enter your batch"
           variant="outlined"
           onChange={(event) => setBatch(event.target.value)}
-          value={Batch}
+          value={batch}
         />
         <TextField
           required="text"
@@ -110,7 +110,7 @@ history.push("/user")
           label="Enter your gender"
           variant="outlined"
           onChange={(event) => setGender(event.target.value)}
-          value={Gender}
+          value={gender}
         />
         <TextField
         required={Number}

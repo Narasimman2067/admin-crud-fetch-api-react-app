@@ -216,7 +216,7 @@
     key={employee.id}>
     <CardContent className="content-div">
     <Typography gutterBottom variant="h5" component="div">
-    Name:{employee.Name}
+    Name:{employee.name}
     </Typography>
     {/* <Typography variant="body2" color="text.secondary">
     batch :{employee.Batch}

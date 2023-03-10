@@ -13,9 +13,9 @@ export function AddStudent({employeesData,setEmployees}) {
     },[])
   
    
-    const [Name, setName] = useState("");
-    const [Batch, setBatch] = useState("");
-    const [Gender, setGender] = useState("");
+    const [name, setName] = useState("");
+    const [batch, setBatch] = useState("");
+    const [gender, setGender] = useState("");
     const [Experiences, setExperience] = useState("");
    
    
@@ -24,10 +24,9 @@ export function AddStudent({employeesData,setEmployees}) {
 event.preventDefault();
       try {
         const newEmployee = {
-          
-          Name,
-          Batch,
-          Gender,
+          name,
+          batch,
+          gender,
           yearsOfExperience: Experiences,
         };
 // after we create the new data use fetch function here
@@ -75,7 +74,7 @@ console.log(data);
           label="Enter your name"
           variant="outlined"
           onChange={(event) => setName(event.target.value)}
-          value={Name}
+          value={name}
         />
         <TextField
          required
@@ -83,7 +82,7 @@ console.log(data);
           label="Enter your batch"
           variant="outlined"
           onChange={(event) => setBatch(event.target.value)}
-          value={Batch}
+          value={batch}
         />
         <TextField
           required="text"
@@ -91,7 +90,7 @@ console.log(data);
           label="Enter your gender"
           variant="outlined"
           onChange={(event) => setGender(event.target.value)}
-          value={Gender}
+          value={gender}
         />
         <TextField
         required={Number}

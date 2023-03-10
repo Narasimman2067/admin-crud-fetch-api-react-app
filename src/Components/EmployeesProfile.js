@@ -19,9 +19,9 @@ export function EmployeesProfile ({employeesData}){
    >
     <div className='profile-div'>
     <h2>Employee-Profile</h2>
-    <p>Employee Name:{employee.Name}</p>
-    <p>Batch:{employee.Batch} </p>
-    <p>Gender:{employee.Gender}</p>
+    <p>Employee Name:{employee.name}</p>
+    <p>Batch:{employee.batch} </p>
+    <p>Gender:{employee.gender}</p>
     <p>yearsOfExperience:{employee.yearsOfExperience}</p>
    </div>
    </Base>
