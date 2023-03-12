@@ -28,7 +28,10 @@ function App() {
    useEffect(()=>{
     const getEmployees = async ()=>{
       try{
-    const response =await fetch("https://63ae58f1ceaabafcf177e2a6.mockapi.io/data",
+        // initially the server connected with mock api
+    // const response =await fetch("https://63ae58f1ceaabafcf177e2a6.mockapi.io/data",
+    // now this server connected with backend mongo server
+    const response =await fetch("http://localhost:9000/students",
     {
       method:"GET"
     });
