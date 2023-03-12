@@ -14,8 +14,8 @@ export function EmployeesProfile ({employeesData}){
   
   return (
    <Base
-   heading="employee profile"
-   description="individual student details"
+   heading="product profile"
+   description="individual product details"
    >
     <div className='profile-div'>
     <h2>Employee-Profile</h2>

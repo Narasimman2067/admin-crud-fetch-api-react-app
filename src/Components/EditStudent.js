@@ -92,15 +92,15 @@ history.push("/user")
         <TextField
          required
           id="outlined-required"
-          label="Enter your product_price"
+          label="Enter your productname"
           variant="outlined"
           onChange={(event) => setProductName(event.target.value)}
-          value={product_price}
+          value={product_name}
         />
         <TextField
          required
           id="outlined-basic"
-          label="Enter your product_material"
+          label="Enter your productprice"
           variant="outlined"
           onChange={(event) => setProductPrice(event.target.value)}
           value={product_price}
@@ -116,7 +116,7 @@ history.push("/user")
         <TextField
         required={Number}
           id="outlined-basic"
-          label="Enter your experiences"
+          label="Enter your productcolor"
           variant="outlined"
           onChange={(event) => setProductColor(event.target.value)}
           value={product_color}
