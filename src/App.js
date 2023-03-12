@@ -34,7 +34,7 @@ function App() {
     });
     const data = await response.json();
     console.log(data)
-    setEmployees(data)
+    setEmployees(data.data)
   }catch (error){
     console.log("error occured")
   }
@@ -53,9 +53,9 @@ function App() {
     });
     const ProfileData =await response.json();
     console.log(ProfileData)
-    setTeachersProfile(ProfileData)
+    setTeachersProfile(ProfileData.data)
   }catch (error){
-    console.log("error occured")
+    console.log("error occured",error)
   }
 
       
