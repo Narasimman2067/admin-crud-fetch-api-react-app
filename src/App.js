@@ -39,7 +39,7 @@ function App() {
     console.log(data)
     setEmployees(data.data)
   }catch (error){
-    console.log("error occured")
+    console.log("error")
   }
 
       
