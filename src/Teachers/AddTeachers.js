@@ -24,7 +24,6 @@ export const AddTeachers = ({TeachersProfileData,setTeachersProfile}) => {
           batch,
           gender,
           experiences,
-          
         };
 
         const response =await fetch("https://63ae58f1ceaabafcf177e2a6.mockapi.io/teacherdata"

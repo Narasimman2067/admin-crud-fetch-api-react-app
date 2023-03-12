@@ -5,7 +5,7 @@ import Base from '../Base/Base';
 
 export const EditTeachers = ({TeachersProfileData,setTeachersProfile}) => {
   const history=useHistory();
-  const {id} =useParams();
+  const {idx} =useParams();
   
   const [updateId, setUpdateId] = useState("");
  
@@ -13,7 +13,7 @@ export const EditTeachers = ({TeachersProfileData,setTeachersProfile}) => {
   const [batch, setBatch] = useState("");
   const [gender, setGender] = useState("");
   const [experiences, setExperience] = useState("");
-  const teachers=TeachersProfileData[id]
+  const teachers=TeachersProfileData[idx]
 
  useEffect(()=>{
 setUpdateId(teachers.id);
@@ -26,9 +26,9 @@ setUpdateId(teachers.id);
  },[])
   
 
-  const updateTeachersProfileData = async () => {
+  const updateTeachersProfileData = async (event) => {
     // select and find the employee
-
+event.preventDefault();
 try {
   const updatedTeachersProfileObj = {
     
@@ -37,7 +37,7 @@ try {
     gender,
     experiences,
   };
-  const response=await fetch (`http://localhost:9000/students`,
+  const response=await fetch (`https://63ae58f1ceaabafcf177e2a6.mockapi.io/teacherdata/${updateId}`,
   {
     method:"PUT",
     body:JSON.stringify(updatedTeachersProfileObj),
@@ -46,14 +46,11 @@ try {
     }
   })
   const profileData =await response.json();
-  console.log(profileData)
-
+ 
   const editTeachersProfileIndex = TeachersProfileData.findIndex(
     (teachers) => teachers.id === updateId
-   
   );
- 
-  TeachersProfileData[editTeachersProfileIndex]=updatedTeachersProfileObj;
+  TeachersProfileData[editTeachersProfileIndex] =updatedTeachersProfileObj;
 
   // set the employee data
   setTeachersProfile([...TeachersProfileData]);

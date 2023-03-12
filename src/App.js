@@ -28,18 +28,15 @@ function App() {
    useEffect(()=>{
     const getEmployees = async ()=>{
       try{
-        // initially the server connected with mock api
-    // const response =await fetch("https://63ae58f1ceaabafcf177e2a6.mockapi.io/data",
-    // now this server connected with backend mongo server
     const response =await fetch("http://localhost:9000/students",
     {
       method:"GET"
     });
     const data = await response.json();
     console.log(data)
-    setEmployees(data.data)
+    setEmployees(data)
   }catch (error){
-    console.log("error")
+    console.log("error occured")
   }
 
       
@@ -50,7 +47,7 @@ function App() {
    useEffect(()=>{
     const getTeachers = async ()=>{
       try{
-    const response =await fetch("https://63ae58f1ceaabafcf177e2a6.mockapi.io/teacherdata",
+    const response =await fetch("http://localhost:9000/students",
     {
       method:"GET"
     });
@@ -146,7 +143,7 @@ function App() {
   />
  </Route>
 
- <Route path="/update/:id/:teachersid">
+ <Route path="/update/:idx/:teachersid">
   <EditTeachers
  TeachersProfileData={TeachersProfileData} 
  setTeachersProfile={setTeachersProfile}
