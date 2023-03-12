@@ -10,19 +10,20 @@ const EditStudent = ({employeesData,setEmployees}) => {
   
   const [editId, setEditId] = useState("");
   
-  const [name, setName] = useState("");
-  const [batch, setBatch] = useState("");
-  const [gender, setGender] = useState("");
-  const [Experiences, setExperience] = useState("");
+  const [product_name, setProductName] = useState("");
+  const [product_price, setProductPrice] = useState("");
+  const [product_material, setProductMaterial] = useState("");
+  const [product_color, setProductColor] = useState("");
+ 
   const employee=employeesData[id]
 
  useEffect(()=>{
   setEditId(employee.id);
 
- setName(employee.name);
- setBatch(employee.batch);
- setGender(employee.gender);
- setExperience(employee.yearsOfExperience)
+ setProductName(employee.product_name);
+ setProductPrice(employee.product_price);
+ setProductMaterial(employee.product_material);
+ setProductColor(employee.product_color)
 
  },[]);
   
@@ -33,11 +34,11 @@ try {
    // we need the updated object
 
    const updatedEmployeeObj = {
-  
-    name,
-    batch,
-    gender,
-    yearsOfExperience: Experiences,
+    product_name,
+    product_price,
+    product_material,
+    product_color,
+    
   };
 
   const response=await fetch(`https://63ae58f1ceaabafcf177e2a6.mockapi.io/data/${editId}`,
@@ -64,10 +65,10 @@ employeesData[editEmployeeindex] = updatedEmployeeObj;
 // set the employee data
 setEmployees([...employeesData]);
 
-setName("");
-setBatch("");
-setGender("");
-setExperience("");
+setProductName("");
+setProductPrice("");
+setProductMaterial("");
+setProductColor("");
 history.push("/user")
 
 } catch (error) {
@@ -83,42 +84,42 @@ history.push("/user")
   //  <div>EditStudent{id} and employeeid {employeeid}</div>
   // )
   <Base>
-  <h1 className='edit-div'>Edit and Update</h1>
-     <div className="input-div">
+  <h1 classproduct_price='edit-div'>Edit and Update</h1>
+     <div classproduct_price="input-div">
      
            
   
         <TextField
          required
           id="outlined-required"
-          label="Enter your name"
+          label="Enter your product_price"
           variant="outlined"
-          onChange={(event) => setName(event.target.value)}
-          value={name}
+          onChange={(event) => setProductName(event.target.value)}
+          value={product_price}
         />
         <TextField
          required
           id="outlined-basic"
-          label="Enter your batch"
+          label="Enter your product_material"
           variant="outlined"
-          onChange={(event) => setBatch(event.target.value)}
-          value={batch}
+          onChange={(event) => setProductPrice(event.target.value)}
+          value={product_price}
         />
         <TextField
           required="text"
           id="outlined-basic"
-          label="Enter your gender"
+          label="Enter your ProductMaterial"
           variant="outlined"
-          onChange={(event) => setGender(event.target.value)}
-          value={gender}
+          onChange={(event) => setProductMaterial(event.target.value)}
+          value={product_material}
         />
         <TextField
         required={Number}
           id="outlined-basic"
           label="Enter your experiences"
           variant="outlined"
-          onChange={(event) => setExperience(event.target.value)}
-          value={Experiences}
+          onChange={(event) => setProductColor(event.target.value)}
+          value={product_color}
         />
       </div>
       <Button
