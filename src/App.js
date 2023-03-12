@@ -37,7 +37,7 @@ function App() {
     });
     const data = await response.json();
     console.log(data)
-    setEmployees(data)
+    setEmployees(data.data)
   }catch (error){
     console.log("error occured")
   }
