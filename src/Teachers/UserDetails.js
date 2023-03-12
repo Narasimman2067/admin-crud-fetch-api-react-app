@@ -70,7 +70,7 @@ useEffect(()=>{
         All teachers Details</h1>
      
       <div className="main-card">
-        {TeachersProfileData.map((teachers,idx) => (
+        {TeachersProfileData.map((teachers,id) => (
           <div className="card-div" >
           <Card 
           key={teachers.id}>
@@ -84,7 +84,7 @@ useEffect(()=>{
 
               
               <Button
-                onClick={() =>history.push(`/update/${idx}/${teachers.idxc}`)}
+                onClick={() =>history.push(`/update/${id}/${teachers.idc}`)}
                 size="small"
                 variant="contained"
                 color="primary"
@@ -106,7 +106,7 @@ useEffect(()=>{
                 </Button>
                 <Button
               
-              onClick={() =>history.push(`/teachers/${idx}`)}
+              onClick={() =>history.push(`/teachers/${id}`)}
               size="small"
               variant="contained"
               color="secondary"

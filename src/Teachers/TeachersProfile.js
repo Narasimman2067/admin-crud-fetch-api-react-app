@@ -20,7 +20,7 @@ export function TeachersProfile ({TeachersProfileData}){
    >
     <div className='profile-div'>
     <h2>Teachers-Profile</h2>
-    <p>Teachers Name:{teachers.name}</p>
+    <p>Mentors Name:{teachers.name}</p>
     <p>Batch:{teachers.batch} </p>
     <p>Gender:{teachers.gender}</p>
     <p>yearsOfExperience:{teachers.experiences}</p>

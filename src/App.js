@@ -146,7 +146,7 @@ function App() {
   />
  </Route>
 
- <Route path="/update/:idx/:teachersid">
+ <Route path="/update/:id/:teachersid">
   <EditTeachers
  TeachersProfileData={TeachersProfileData} 
  setTeachersProfile={setTeachersProfile}
