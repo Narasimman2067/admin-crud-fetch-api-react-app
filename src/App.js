@@ -28,7 +28,7 @@ function App() {
    useEffect(()=>{
     const getEmployees = async ()=>{
       try{
-    const response =await fetch("http://localhost:9000/students",
+    const response =await fetch("https://backend-demo-in-class.vercel.app/students",
     {
       method:"GET"
     });
