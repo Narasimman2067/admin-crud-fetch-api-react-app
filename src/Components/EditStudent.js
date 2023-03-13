@@ -3,91 +3,79 @@ import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import Base from '../Base/Base';
 
-const EditStudent = ({employeesData,setEmployees}) => {
+export const EditStudent = ({employeesData,setEmployees}) => {
   const history=useHistory();
-  
-  const {id} = useParams();
+  const {id} =useParams();
   
   const [editId, setEditId] = useState("");
-  
+ 
   const [product_name, setProductName] = useState("");
   const [product_price, setProductPrice] = useState("");
   const [product_material, setProductMaterial] = useState("");
   const [product_color, setProductColor] = useState("");
- 
   const employee=employeesData[id]
 
  useEffect(()=>{
-  setEditId(employee.id);
+setEditId(employee.id);
 
  setProductName(employee.product_name);
  setProductPrice(employee.product_price);
  setProductMaterial(employee.product_material);
  setProductColor(employee.product_color)
 
- },[]);
+ },[])
   
 
-  const updateEmployeesData = async () => {
+  const updateEmployeesData = async (event) => {
     // select and find the employee
+event.preventDefault();
 try {
-   // we need the updated object
-
-   const updatedEmployeeObj = {
+  const updatedEmployeeObj = {
+    
     product_name,
     product_price,
     product_material,
     product_color,
-    
   };
+  const response=await fetch (`http://localhost:9000/students/${editId}`,
+  {
+    method:"PUT",
+    body:JSON.stringify(updatedEmployeeObj),
+    headers:{
+      "Content-Type":"application.json"
+    }
+  })
+  const data =await response.json();
+  console.log(data)
+ 
+  const editEmployeeIndex = employeesData.findIndex(
+    (employee) => employee.id === editId
+  );
+  employeesData[editEmployeeIndex] =updatedEmployeeObj;
 
-  // const response=await fetch(`https://63ae58f1ceaabafcf177e2a6.mockapi.io/data/${editId}`,
-  const response=await fetch(`http://localhost:9000/students/${editId}`,
-{
-  method:"PUT",
-  body:JSON.stringify(updatedEmployeeObj),
-  headers:{
-    "content-type":"application.json",
-  }
-
-})
-const data =await response.json()
-console.log(data)
-const editEmployeeindex = employeesData.findIndex(
-  (employee) => employee.id === editId
-);
-// we need the updated object
-
-
-
-// change the selected specific array of data
-employeesData[editEmployeeindex] = updatedEmployeeObj;
-
-// set the employee data
-setEmployees([...employeesData]);
-
-setProductName("");
-setProductPrice("");
-setProductMaterial("");
-setProductColor("");
-history.push("/user")
-
+  // set the employee data
+  setEmployees([...employeesData]);
+ 
+  setProductName("");
+  setProductPrice("");
+  setProductMaterial("");
+  setProductColor("");
+  history.push("/user")
 } catch (error) {
-  console.log("error occured while rendering")
+  console.log("error occured while update")
 }
-
-
-
-    
+   
+   
+   
   };
  
     return (
   //  <div>EditStudent{id} and employeeid {employeeid}</div>
   // )
   <Base>
-  <h1 classproduct_price='edit-div'>Edit and Update</h1>
+  <h1 className='edit-div'>Edit products Profile</h1>
      <div className="input-div">
-     
+   
            
   
         <TextField
@@ -109,7 +97,7 @@ history.push("/user")
         <TextField
           required="text"
           id="outlined-basic"
-          label="Enter your ProductMaterial"
+          label="Enter your productmaterial"
           variant="outlined"
           onChange={(event) => setProductMaterial(event.target.value)}
           value={product_material}
@@ -127,7 +115,7 @@ history.push("/user")
             size="small"
             variant="contained"
             color="secondary"
-            onClick={updateEmployeesData}
+            onClick={ updateEmployeesData}
           >
             update data
           </Button>
@@ -139,4 +127,4 @@ history.push("/user")
     )
 }
 
-export default EditStudent
+export default EditStudent;
