@@ -30,7 +30,7 @@ event.preventDefault();
           product_color,
         };
 // after we create the new data use fetch function here
-const response=await fetch("https://63ae58f1ceaabafcf177e2a6.mockapi.io/data",
+const response=await fetch("http://localhost:9000/students",
 {
   method:"POST",
   body:JSON.stringify(newEmployee),

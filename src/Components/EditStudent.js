@@ -41,7 +41,8 @@ try {
     
   };
 
-  const response=await fetch(`https://63ae58f1ceaabafcf177e2a6.mockapi.io/data/${editId}`,
+  // const response=await fetch(`https://63ae58f1ceaabafcf177e2a6.mockapi.io/data/${editId}`,
+  const response=await fetch(`http://localhost:9000/students/${editId}`,
 {
   method:"PUT",
   body:JSON.stringify(updatedEmployeeObj),
