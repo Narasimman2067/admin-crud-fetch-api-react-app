@@ -110,7 +110,7 @@ function App() {
  </Route>
    
  <Route path="/edit/:id">
-  <Redirect to="//edit/:id"/>
+  <Redirect to="/edit/:id"/>
   <EditStudent
    employeesData={employeesData} 
    setEmployees={setEmployees}
