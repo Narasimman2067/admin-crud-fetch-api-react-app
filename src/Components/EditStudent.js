@@ -37,7 +37,7 @@ try {
     product_material,
     product_color,
   };
-  const response=await fetch (`http://localhost:9000/students/${editId}`,
+  const response=await fetch (`https://backend-demo-in-class.vercel.app/students/${editId}`,
   {
     method:"PUT",
     body:JSON.stringify(updatedEmployeeObj),
