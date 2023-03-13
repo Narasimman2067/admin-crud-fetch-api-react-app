@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import Base from '../Base/Base'
 
 export function EmployeesProfile ({employeesData}){
-  const history=useHistory();
+  // const history=useHistory();
   const {id}=useParams();
   const employee=employeesData[id]
 
-  useEffect(()=>{
-    if(!localStorage.getItem("user-name"))
-    history.replace("/login")
-    },[])
+  // useEffect(()=>{
+  //   if(!localStorage.getItem("user-name"))
+  //   history.replace("/login")
+  //   },[])
   
   return (
    <Base

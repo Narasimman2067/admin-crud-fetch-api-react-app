@@ -5,7 +5,7 @@
     Card,
     CardActions,
     CardContent,
-    TextField,
+   
     Typography,
     } from "@mui/material";
     import Base from "../Base/Base";
@@ -57,7 +57,7 @@
 
 
     try {
-    const response=await fetch(`https://63ae58f1ceaabafcf177e2a6.mockapi.io/data/${employeeID}`
+    const response=await fetch(`https://backend-demo-in-class.vercel.app/students/${employeeID}`
     ,{method:"Delete",}
     // for this there is no need of headers and body fot Delete and GEt method
     )

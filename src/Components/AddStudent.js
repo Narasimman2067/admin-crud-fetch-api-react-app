@@ -1,5 +1,5 @@
 import { Button, TextField } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 
 import Base from '../Base/Base'
@@ -7,10 +7,10 @@ import Base from '../Base/Base'
 export function AddStudent({employeesData,setEmployees}) {
    const history=useHistory();
 
-   useEffect(()=>{
-    if(!localStorage.getItem("user-name"))
-    history.replace("/login")
-    },[])
+  //  useEffect(()=>{
+  //   if(!localStorage.getItem("user-name"))
+  //   history.replace("/login")
+  //   },[])
   
    
     const [product_name, setProductName] = useState("");
@@ -30,7 +30,7 @@ event.preventDefault();
           product_color,
         };
 // after we create the new data use fetch function here
-const response=await fetch("http://localhost:9000/students",
+const response=await fetch("https://backend-demo-in-class.vercel.app/students",
 {
   method:"POST",
   body:JSON.stringify(newEmployee),
