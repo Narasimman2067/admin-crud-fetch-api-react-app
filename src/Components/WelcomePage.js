@@ -23,14 +23,6 @@ export function WelcomePage() {
                 >
                   students login
                 </Button>
-
-                <Button
-                  onClick={() => history.push("/teacherslogin")}
-                  variant="contained"
-                  color="secondary"
-                >
-                  teachers login
-                </Button>
               </div>
             </div>
           </nav>
