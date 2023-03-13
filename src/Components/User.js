@@ -242,7 +242,7 @@
 
 
     <Button
-    onClick={() =>history.push(`/edit/${id}`)}
+    onClick={() =>history.push(`/edit/${id}/${employee.id}`)}
     size="small"
     variant="contained"
     color="primary"

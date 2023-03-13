@@ -109,7 +109,7 @@ function App() {
   />
  </Route>
 
- <Route path="/edit/:id">
+ <Route path="/edit/:id/employeeid">
   <EditStudent
    employeesData={employeesData} 
    setEmployees={setEmployees}
